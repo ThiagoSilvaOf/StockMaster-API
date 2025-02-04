@@ -4,6 +4,7 @@
   "description": "Aplicação de controle de estoque",
   "main": "index.js",
   "scripts": {
+    "dev": "node --watch index.js",
     "test": "jest"
   },
   "keywords": [
