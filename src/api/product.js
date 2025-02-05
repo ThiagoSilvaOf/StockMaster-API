@@ -1,7 +1,8 @@
 class ApiProduct {
   async FindAll(req, res) {
     try {
-      const products = [{}]; //service.findById(productId)
+      const organizationId = 1;
+      const products = [{organizationId}]; //service.findById(productId)
 
       res.status(200).send({ products });
     } catch (error) {
@@ -12,7 +13,8 @@ class ApiProduct {
   async FindById(req, res) {
     try {
       const { id } = req.params;
-      const product = {}; //service.findById(productId)
+      const organizationId = 1;
+      const product = {id}; //service.findById(productId)
 
       res.status(200).send({ product });
     } catch (error) {
@@ -22,7 +24,8 @@ class ApiProduct {
 
   async Create() {
     try {
-      const { id } = req.params;
+      const organizationId = 1;
+      const { name, description } = req.body;
       const product = {}; //service.findById(productId)
 
       res.status(200).send({ product });
@@ -33,7 +36,9 @@ class ApiProduct {
 
   async Update() {
     try {
+      const organizationId = 1;
       const { id } = req.params;
+      const {name, description } = req.body;
       const product = {}; //service.findById(productId)
 
       res.status(200).send({ product });
@@ -44,6 +49,7 @@ class ApiProduct {
 
   async Delete() {
     try {
+      const organizationId = 1;
       const { id } = req.params;
       const product = {}; //service.findById(productId)
 

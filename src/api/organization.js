@@ -2,7 +2,7 @@ class ApiOrganization {
   async FindById(req, res) {
     try {
       const { id } = req.params;
-      const organization = {}; //service.findById(organizationId)
+      const organization = { id }; //service.findById(organizationId)
 
       res.status(200).send({ organization });
     } catch (error) {
@@ -12,7 +12,7 @@ class ApiOrganization {
 
   async Create() {
     try {
-      const { id } = req.params;
+      const { name, address, phone, email } = req.body;
       const organization = {}; //service.findById(organizationId)
 
       res.status(200).send({ organization });
@@ -24,7 +24,8 @@ class ApiOrganization {
   async Update() {
     try {
       const { id } = req.params;
-      const organization = {}; //service.findById(organizationId)
+      const { name, address, phone, email } = req.body;
+      const organization = { id, name, address, phone, email }; //service.findById(organizationId)
 
       res.status(200).send({ organization });
     } catch (error) {
@@ -35,7 +36,7 @@ class ApiOrganization {
   async Delete() {
     try {
       const { id } = req.params;
-      const organization = {}; //service.findById(organizationId)
+      const organization = { id }; //service.findById(organizationId)
 
       res.status(200).send({ organization });
     } catch (error) {

@@ -1,6 +1,8 @@
 class ApiInventoryMovement {
   async FindAll(req, res) {
     try {
+      const organizationId = 1;
+      const { inventoryId } = req.params;
       const inventoryMovements = [{}]; //service.findById(inventoryId)
 
       res.status(200).send({ inventoryMovements });
@@ -11,7 +13,8 @@ class ApiInventoryMovement {
 
   async FindById(req, res) {
     try {
-      const { id } = req.params;
+      const organizationId = 1;
+      const { id, inventoryId } = req.params;
       const inventory = {}; //service.findById(inventoryId)
 
       res.status(200).send({ inventory });
@@ -22,7 +25,10 @@ class ApiInventoryMovement {
 
   async Create() {
     try {
-      const { id } = req.params;
+      const organizationId = 1;
+      const userId = 1;
+      const { inventoryId } = req.params;
+      const { type, amount, productId} = req.body;
       const inventoryMovement = {}; //service.findById(inventoryMovementId)
 
       res.status(200).send({ inventoryMovement });
@@ -33,7 +39,11 @@ class ApiInventoryMovement {
 
   async Update() {
     try {
-      const { id } = req.params;
+      const organizationId = 1;
+      const userId = 1;
+      const { id, inventoryId } = req.params;
+      const { type, amount, productId} = req.body;
+
       const inventoryMovement = {}; //service.findById(inventoryMovementId)
 
       res.status(200).send({ inventoryMovement });
@@ -44,7 +54,9 @@ class ApiInventoryMovement {
 
   async Delete() {
     try {
-      const { id } = req.params;
+      const organizationId = 1;
+      const { id, inventoryId } = req.params;
+
       const inventoryMovement = {}; //service.findById(inventoryMovementId)
 
       res.status(200).send({ inventoryMovement });
