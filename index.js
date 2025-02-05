@@ -11,11 +11,11 @@ const movementRouter = require("./src/routes/iventoryMovement");
 app.use(express.json());
 app.post("/api/v1/login", () => {});
 
-app.use("/api/v1/user", userRouter);
 app.use("/api/v1/organization", organizationRouter);
+app.use("/api/v1/user", userRouter);
+app.use("/api/v1/product", productRouter);
 app.use("/api/v1/inventory", inventoryRouter);
 app.use("/api/v1/inventorymovement", movementRouter);
-app.use("/api/v1/product", productRouter);
 
 database.db
   .sync({ force: true })
