@@ -10,24 +10,24 @@ class User {
         autoIncrement: true,
       },
       name: {
-        type: database.db.Sequelize.type.STRING,
+        type: database.db.Sequelize.STRING,
         allowNull: false,
       },
       email: {
-        type: database.db.Sequelize.type.STRING,
+        type: database.db.Sequelize.STRING,
         allowNull: false,
         unique:true
       },
       password: {
-        type: database.db.Sequelize.type.STRING,
+        type: database.db.Sequelize.STRING,
         allowNull: false,
       },
       role: {
-        type: database.db.Sequelize.type.STRING,
+        type: database.db.Sequelize.STRING,
         allowNull: false,
       },
       organizationId: {
-        type: database.db.Sequelize.type.INTEGER,
+        type: database.db.Sequelize.INTEGER,
         references: {
           model: Organization,
           key: "id",

@@ -10,19 +10,19 @@ class InventoryMovement {
     this.model = database.db.define("inventory_movements", {
       id: {
         primaryKey: true,
-        type: database.db.Sequelize.type.INTEGER,
+        type: database.db.Sequel.INTEGER,
         autoIncrement: true,
       },
       type: {
-        type: database.db.Sequelize.type.STRING,
+        type: database.db.Sequelize.STRING,
         allowNull: false,
       },
       amount: {
-        type: database.db.Sequelize.type.INTEGER,
+        type: database.db.Sequelize.INTEGER,
         allowNull: false,
       },
       userId: {
-        type: database.db.Sequelize.type.INTEGER,
+        type: database.db.Sequelize.INTEGER,
         references: {
           model: User,
           key: "id",

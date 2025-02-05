@@ -5,24 +5,24 @@ class Organization {
     this.model = database.db.define("organizations", {
       id: {
         primaryKey:true,
-        type: database.db.Sequelize.type.INTEGER,
+        type: database.db.Sequelize.INTEGER,
         autoIncrement:true
       },
       name: {
-        type: database.db.Sequelize.type.STRING,
+        type: database.db.Sequelize.STRING,
         allowNull:false,
 
       },
       address: {
-        type: database.db.Sequelize.type.STRING,
+        type: database.db.Sequelize.STRING,
         allowNull:false,
       },
       phone: {
-        type: database.db.Sequelize.type.STRING,
+        type: database.db.Sequelize.STRING,
         allowNull:true,
       },
       email: {
-        type: database.db.Sequelize.type.STRING,
+        type: database.db.Sequelize.STRING,
         allowNull:false,
         unique:true
       },

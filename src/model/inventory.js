@@ -6,15 +6,15 @@ class Inventory {
     this.model = database.db.define("inventories", {
       id: {
         primaryKey: true,
-        type: database.db.Sequelize.type.INTEGER,
+        type: database.db.Sequelize.INTEGER,
         autoIncrement: true,
       },
       name: {
-        type: database.db.Sequelize.type.STRING,
+        type: database.db.Sequelize.STRING,
         allowNull: false,
       },
       organizationId: {
-        type: database.db.Sequelize.type.INTEGER,
+        type: database.db.Sequelize.INTEGER,
         references:{
           model: Organization,
           key:"id"
