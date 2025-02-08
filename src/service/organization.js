@@ -1,4 +1,5 @@
 const modelOrganization = require("../model/organization");
+const serviceUser = require("./user");
 
 class ServiceOrganization {
   async FindById(id, transaction) {
@@ -20,30 +21,41 @@ class ServiceOrganization {
       { name, address, phone, email },
       { transaction }
     );
-    return organization;
+
+    const password = "abc123";
+    const user = await serviceUser.Create(
+      organization.id,
+      `Admin: ${name}`,
+      email,
+      password,
+      "admin",
+      transaction
+    );
+
+    return { organization, user: { ...user.dataValues, password } };
   }
 
   async Update(id, name, address, phone, email, transaction) {
     const organization = await this.FindById(id, transaction);
-    if(!organization){
+    if (!organization) {
       throw new Error("Organização não encontrada.");
     }
 
-    organization.name = name || organization.name
-    organization.address = address || organization.address
-    organization.phone = phone || organization.phone
-    organization.email = email || organization.email
+    organization.name = name || organization.name;
+    organization.address = address || organization.address;
+    organization.phone = phone || organization.phone;
+    organization.email = email || organization.email;
 
-    return organization.save({ transaction })
+    return organization.save({ transaction });
   }
 
   async Delete(id, transaction) {
     const organization = await this.FindById(id, transaction);
-    if(!organization){
+    if (!organization) {
       throw new Error("Organização não encontrada.");
     }
-    
-    organization.destroy({transaction})
+
+    organization.destroy({ transaction });
   }
 }
 

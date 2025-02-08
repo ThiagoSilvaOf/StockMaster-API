@@ -6,7 +6,7 @@ class User {
     this.model = database.db.define("users", {
       id: {
         primaryKey: true,
-        type: database.db.Sequelize.type.INTEGER,
+        type: database.db.Sequelize.INTEGER,
         autoIncrement: true,
       },
       name: {
