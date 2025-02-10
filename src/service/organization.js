@@ -1,3 +1,4 @@
+const generatePassword = require("../fns/generate-password");
 const modelOrganization = require("../model/organization");
 const serviceUser = require("./user");
 
@@ -22,7 +23,7 @@ class ServiceOrganization {
       { transaction }
     );
 
-    const password = "abc123";
+    const password = generatePassword();
     const user = await serviceUser.Create(
       organization.id,
       `Admin: ${name}`,
