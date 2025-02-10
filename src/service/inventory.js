@@ -1,19 +1,13 @@
-class ServiceOrganization{
-  async FindById(){
+class ServiceInventory {
+  async FindAll(organizationId, transaction) {}
 
-  }
+  async FindById(organizationId, id, transaction) {}
 
-  async Create(){
-    
-  }
+  async Create(organizationId, name, description, transaction) {}
 
-  async Update(){
-    
-  }
+  async Update(organizationId, id, name, description, transaction) {}
 
-  async Delete(){
-    
-  }
+  async Delete(organizationId, id, transaction) {}
 }
 
-module.exports = ServiceOrganization;
+module.exports = new ServiceInventory();
