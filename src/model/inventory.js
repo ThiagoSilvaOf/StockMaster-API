@@ -27,4 +27,4 @@ class Inventory {
   }
 }
 
-module.exports = new Organization().model;
+module.exports = new Inventory().model;
