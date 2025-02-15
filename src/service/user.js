@@ -6,7 +6,7 @@ const salt = 12;
 
 class ServiceUser {
   async FindByAll(organizationId, transaction) {
-    return await modelUser.findByPk({ where: { organizationId }, transaction });
+    return await modelUser.findAll({ where: { organizationId }, transaction });
   }
 
   async FindById(organizationId, id, transaction) {

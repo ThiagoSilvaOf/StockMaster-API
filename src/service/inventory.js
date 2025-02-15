@@ -1,6 +1,6 @@
 const modelInventory = require("../model/inventory")
 
-class ServiceInventory {
+class ServiceInventory{
   async FindAll(organizationId, transaction) {
     return modelInventory.findAll({ where: { organizationId } }, { transaction });
   }
@@ -35,7 +35,7 @@ class ServiceInventory {
   }
 
   async Delete(organizationId, id, transaction) {
-    const oldInvetory = await this.FindById(organizationId, id)
+    const oldInvetory = await this.FindById(organizationId, id, transaction)
 
     if (!oldInvetory) {
       throw new Error("Estoque não encontrado.");

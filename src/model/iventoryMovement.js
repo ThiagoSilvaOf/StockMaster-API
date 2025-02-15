@@ -1,7 +1,5 @@
 const database = require("../database");
-const database = require("../database");
 const Inventory = require("./inventory");
-const Organization = require("./organization");
 const Product = require("./product");
 const User = require("./user");
 
@@ -10,7 +8,7 @@ class InventoryMovement {
     this.model = database.db.define("inventory_movements", {
       id: {
         primaryKey: true,
-        type: database.db.Sequel.INTEGER,
+        type: database.db.Sequelize.INTEGER,
         autoIncrement: true,
       },
       type: {
@@ -29,14 +27,14 @@ class InventoryMovement {
         },
       },
       productId: {
-        type: database.db.Sequelize.type.INTEGER,
+        type: database.db.Sequelize.INTEGER,
         references: {
           model: Product,
           key: "id",
         },
       },
       inventoryId: {
-        type: database.db.Sequelize.type.INTEGER,
+        type: database.db.Sequelize.INTEGER,
         references: {
           model: Inventory,
           key: "id",
