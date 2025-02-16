@@ -1,10 +1,11 @@
 const modelInventory = require("../model/iventoryMovement");
+const product = require("../model/product");
 const movementTypes = ["out", "in"]
 
 class ServiceInventoryMovement {
   async FindAll(inventoryId, transaction) {
     return modelInventory.findAll(
-      { where: { inventoryId } },
+      { where: { inventoryId }, include: { model: product } },
       { transaction }
     );
   }
