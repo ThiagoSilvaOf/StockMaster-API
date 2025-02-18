@@ -100,6 +100,10 @@ class ServiceUser {
     }
     throw new Error("Email ou Senha inválidos");
   }
+
+  async Verify(id, role, transaction){
+    return modelUser.findOne({where: { id, role }, transaction,});
+  }
 }
 
 module.exports = new ServiceUser();

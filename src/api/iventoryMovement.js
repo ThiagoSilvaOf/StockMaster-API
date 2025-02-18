@@ -49,7 +49,7 @@ class ApiInventoryMovement {
 
   async Update(req, res) {
     try {
-      const userId = 1;
+      const userId = req.session.id;
       const { id, inventoryId } = req.params;
       const { type, amount } = req.body;
 

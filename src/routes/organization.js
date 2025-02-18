@@ -1,10 +1,11 @@
 const express = require("express");
 const organizationRouter = express.Router();
-const ApiOrganization = require("../api/organization")
+const ApiOrganization = require("../api/organization");
+const authMiddleware = require("../middleware/auth");
 
-organizationRouter.get("/:id", ApiOrganization.FindById);
-organizationRouter.post("/", ApiOrganization.Create);
-organizationRouter.put("/:id", ApiOrganization.Update);
-organizationRouter.delete("/:id", ApiOrganization.Delete);
+organizationRouter.get("/:id", authMiddleware("admin") ,ApiOrganization.FindById);
+organizationRouter.post("/", authMiddleware("admin"), ApiOrganization.Create);
+organizationRouter.put("/:id", authMiddleware("admin"), ApiOrganization.Update);
+organizationRouter.delete("/:id", authMiddleware("admin"), ApiOrganization.Delete);
 
 module.exports = organizationRouter;
