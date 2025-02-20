@@ -4,7 +4,7 @@ const ApiOrganization = require("../api/organization");
 const authMiddleware = require("../middleware/auth");
 
 organizationRouter.get("/:id", authMiddleware("admin") ,ApiOrganization.FindById);
-organizationRouter.post("/", authMiddleware("admin"), ApiOrganization.Create);
+organizationRouter.post("/", ApiOrganization.Create);
 organizationRouter.put("/:id", authMiddleware("admin"), ApiOrganization.Update);
 organizationRouter.delete("/:id", authMiddleware("admin"), ApiOrganization.Delete);
 

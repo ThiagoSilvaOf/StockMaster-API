@@ -5,17 +5,14 @@ const secretKey = "meuSegredoForte"
 function authMiddleware(role){
   return(req, res, next) => {
     const token = req.headers["authorization"]
-    console.log(token, role);
 
     if(!token){
       res.status(400).send({ msg: "Token inválido ou não fornecido" })
-      console.log(token)
       return
     }
 
     jwt.verify(token, secretKey, async (err, decoded) => {
       if(err){
-        console.error(err)
         res.status(400).send({ msg: "Token inválido ou não fornecido" })
         return
       }
@@ -27,7 +24,6 @@ function authMiddleware(role){
         }
 
         req.session = decoded;
-        console.log(decoded);
         next()
     })
 

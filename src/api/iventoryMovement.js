@@ -30,7 +30,7 @@ class ApiInventoryMovement {
 
   async Create(req, res) {
     try {
-      const userId = 7;
+      const userId = req.session.id;
       const { inventoryId } = req.params;
       const { type, amount, productId } = req.body;
       const inventoryMovement = await serviceInventoryMovement.Create(

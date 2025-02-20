@@ -4,7 +4,7 @@ class ApiUser {
   async FindAll(req, res) {
     try {
       const organizationId = req.session.organizationId;
-      const users = serviceUser.FindByAll(organizationId)
+      const users = await serviceUser.FindByAll(organizationId)
  
       res.status(200).send({ users });
     } catch (error) {
@@ -14,8 +14,7 @@ class ApiUser {
 
   async FindById(req, res) {
     try {
-      const organizationId = req.session.organizationId;
-      const { id } = req.params;
+      const {id, organizationId} = req.session;
       const user = await serviceUser.FindById(organizationId, id)
 
       res.status(200).send({ user });
@@ -39,7 +38,7 @@ class ApiUser {
   async Update(req, res) {
     try {
       const organizationId = req.session.organizationId;
-      const { id } = req.params;
+      const id = req.params.id || req.session.id;
       const { name, email, password, role } = req.body;
       const user = await serviceUser.Update(organizationId, id, name, email, password, role)
 
@@ -52,7 +51,7 @@ class ApiUser {
   async Delete(req, res) {
     try {
       const organizationId = req.session.organizationId;
-      const { id } = req.params;
+      const id = req.params.id || req.session.id;
       const user = await serviceUser.Delete(organizationId, id);
 
       res.status(200).send({ user });
