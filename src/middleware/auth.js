@@ -1,6 +1,7 @@
+require("dotenv").config()
 const serviceUser = require("../service/user")
 const jwt = require("jsonwebtoken");
-const secretKey = "meuSegredoForte"
+const secretKey = process.env.JWT_SECRET;
 
 function authMiddleware(role){
   return(req, res, next) => {
